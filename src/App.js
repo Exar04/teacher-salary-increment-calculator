@@ -161,7 +161,6 @@ function OutPut1(props){
     } else {
         setJuneNPSAllowance(0)
     }
-    setJuneTotal(juneBasicIncome*1+juneHRA*1+juneDA*1+juneTA*1+juneotherAllowance*1+juneNPSAllowance*1) 
 
     setJulyBasicIncome(Math.ceil(((props.BasicIncome * 3 / 100) + props.BasicIncome * 1 )/100)* 100)
     if(props.HRA == 9){
@@ -172,7 +171,7 @@ function OutPut1(props){
       setJulyHRA(props.BasicIncome * 30 / 100) 
     }else{
       setJulyHRA(0) 
-      // alert("Value can only be 9, 18, 27")
+      alert("Value can only be 9, 18, 27")
     }
 
     setJulyDA(props.BasicIncome * 50 /100)
@@ -182,12 +181,16 @@ function OutPut1(props){
       var npsAllow = Math.ceil((props.BasicIncome + props.DA) / 14 * 100)
         setJulyNPSAllowance(npsAllow)
     } else {
-        setJulyNPSAllowance(0)
+      setJulyNPSAllowance(0)
     }
-    setJulyTotal(julyBasicIncome*1+julyHRA*1+julyDA*1+julyTA*1+julyOtherAllowance*1+julyNPSAllowance*1) 
-
   }, [props.switchToOutput])
-  
+  useEffect(() => {
+    setJulyTotal(julyBasicIncome*1+julyHRA*1+julyDA*1+julyTA*1+julyOtherAllowance*1+julyNPSAllowance*1)
+  }, [julyDA, julyHRA, julyTA, julyBasicIncome])
+  useEffect(() => {
+    setJuneTotal(juneBasicIncome*1+juneHRA*1+juneDA*1+juneTA*1+juneotherAllowance*1+juneNPSAllowance*1) 
+  }, juneDA, juneHRA, juneotherAllowance, juneBasicIncome)
+
 
   return(
     <div className=" h-full w-full bg-blue-900 rounded-sm flex flex-col">
