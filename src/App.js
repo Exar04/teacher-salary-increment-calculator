@@ -156,7 +156,7 @@ function OutPut1(props){
     setJuneTA(props.TA)
     setJuneOtherAllowance(props.otherAllowance)
     if (props.NPSAllowance) {
-      var npsAllow = Math.ceil((props.BasicIncome + props.DA) / 14 * 100)
+      var npsAllow = Math.ceil((props.BasicIncome + 50) / 14 * 100)
         setJuneNPSAllowance(npsAllow)
     } else {
         setJuneNPSAllowance(0)
@@ -164,11 +164,11 @@ function OutPut1(props){
 
     setJulyBasicIncome(Math.ceil(((props.BasicIncome * 3 / 100) + props.BasicIncome * 1 )/100)* 100)
     if(props.HRA == 9){
-      setJulyHRA(props.BasicIncome * 10 / 100) 
+      setJulyHRA(julyBasicIncome * 10 / 100) 
     } else if (props.HRA == 18){
-      setJulyHRA(props.BasicIncome * 20 / 100) 
+      setJulyHRA(julyBasicIncome * 20 / 100) 
     }else if (props.HRA == 27){
-      setJulyHRA(props.BasicIncome * 30 / 100) 
+      setJulyHRA(julyBasicIncome * 30 / 100) 
     }else{
       setJulyHRA(0) 
       alert("Value can only be 9, 18, 27")
@@ -178,8 +178,8 @@ function OutPut1(props){
     setJulyTA(props.TA)
     setJulyOtherAllowance(props.otherAllowance)
     if (props.NPSAllowance) {
-      var npsAllow = Math.ceil((props.BasicIncome + props.DA) / 14 * 100)
-        setJulyNPSAllowance(npsAllow)
+      var npsAllow = Math.ceil((props.BasicIncome + 50) / 14 * 100)
+      setJulyNPSAllowance(npsAllow)
     } else {
       setJulyNPSAllowance(0)
     }
