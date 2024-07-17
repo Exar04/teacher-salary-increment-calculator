@@ -82,8 +82,8 @@ function InputTable(props){
         </div>
         <Line />
 
-        <div className=" w-full border-slate-200 flex p-2 ">
-          <div className=" w-3/5 h-full p-2 ">घरभाडे % HRA</div>
+        <div className=" w-full border-slate-200 flex  ">
+          <div className=" w-3/5 h-full p-2 ">घरभाडे % HRA <div className=" text-sm text-gray-300">येथे ९,१८,२७ यांपैकी आकडे टाका</div></div>
           <input onChange={(e) => { props.setHRA(e.target.value) }} className=" w-2/5 text-center text-black rounded-sm  outline-none" placeholder="Input" />
         </div>
         <Line />
@@ -189,7 +189,7 @@ function OutPut1(props){
   }, [julyDA, julyHRA, julyTA, julyBasicIncome])
   useEffect(() => {
     setJuneTotal(juneBasicIncome*1+juneHRA*1+juneDA*1+juneTA*1+juneotherAllowance*1+juneNPSAllowance*1) 
-  }, juneDA, juneHRA, juneotherAllowance, juneBasicIncome)
+  }, [juneDA, juneHRA, juneotherAllowance, juneBasicIncome, juneTA, juneNPSAllowance])
 
 
   return(
