@@ -190,12 +190,12 @@ function OutPut1(props){
     setJulyOtherAllowance(props.otherAllowance)
     if (props.NPSAllowance) {
       var npsAllow = Math.ceil((julyBasicIncome*1 + julyDA*1) * 14 / 100)
-      console.log(npsAllow)
+      console.log((julyBasicIncome*1 + julyDA*1) * 14 / 100)
       setJulyNPSAllowance(npsAllow)
     } else {
       setJulyNPSAllowance(0)
     }
-  }, [props.switchToOutput, julyBasicIncome])
+  }, [props.switchToOutput, julyBasicIncome, julyDA])
   useEffect(() => {
     setJulyTotal(julyBasicIncome*1+julyHRA*1+julyDA*1+julyTA*1+julyOtherAllowance*1+julyNPSAllowance*1)
   }, [julyDA, julyHRA, julyTA, julyBasicIncome])
