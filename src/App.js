@@ -185,7 +185,7 @@ function OutPut1(props){
       alert("Value can only be 9, 18, 27")
     }
 
-    setJulyDA(props.BasicIncome * 50 /100)
+    setJulyDA(julyBasicIncome * 50 /100)
     setJulyTA(props.TA)
     setJulyOtherAllowance(props.otherAllowance)
     if (props.NPSAllowance) {
