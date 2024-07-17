@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function App() {
   const [switchToOutput, setSwitchOutput] = useState(false)
@@ -40,10 +40,16 @@ function App() {
       {switchToOutput ? "" : <InputTable
         setSwitchOutput={setSwitchOutput}
         setBasicIncome={setBasicIncome}
+
         setHRA={setHRA}
+        HRA={HRA}
         // setDA={setDA}
         setTA={setTA}
+        TA={TA}
+
         setOtherAllowance={setOtherAllowance}
+        otherAllowance={otherAllowance}
+
         setNPSAllowance={setNPSAllowance}
         NPSAllowance={NPSAllowance}
       />}
@@ -73,6 +79,11 @@ function App() {
 }
 
 function InputTable(props){
+  useEffect(() => {
+    props.setHRA(9)
+    props.setTA(1350)
+    props.setOtherAllowance(0)
+  },[])
   return (
     <div className=" h-full w-full bg-blue-900 rounded-sm flex flex-col">
       <div className=" h-5/6 w-full flex flex-col justify-evenly  items-center flex-grow ">
@@ -84,7 +95,7 @@ function InputTable(props){
 
         <div className=" w-full border-slate-200 flex  ">
           <div className=" w-3/5 h-full p-2 ">घरभाडे % HRA <div className=" text-sm text-gray-300">येथे ९,१८,२७ यांपैकी आकडे टाका</div></div>
-          <input onChange={(e) => { props.setHRA(e.target.value) }} className=" w-2/5 text-center text-black rounded-sm  outline-none" placeholder="Input" />
+          <input onChange={(e) => { props.setHRA(e.target.value) }} value={props.HRA} className=" w-2/5 text-center text-black rounded-sm  outline-none" placeholder="Input" />
         </div>
         <Line />
 
@@ -97,13 +108,13 @@ function InputTable(props){
 
         <div className=" w-full border-slate-200 flex p-2 ">
           <div className=" w-3/5 h-full p-2 ">प्रवास भत्ता TA</div>
-          <input onChange={(e) => { props.setTA(e.target.value) }} className=" w-2/5 text-center text-black rounded-sm outline-none" placeholder="Input" />
+          <input onChange={(e) => { props.setTA(e.target.value) }} value={props.TA} className=" w-2/5 text-center text-black rounded-sm outline-none" placeholder="Input" />
         </div>
         <Line />
 
         <div className=" w-full border-slate-200 flex p-2 ">
           <div className=" w-3/5 h-full p-2 ">इतर भत्ते</div>
-          <input onChange={(e) => { props.setOtherAllowance(e.target.value) }} className=" w-2/5 text-center text-black rounded-sm outline-none" placeholder="Input" />
+          <input onChange={(e) => { props.setOtherAllowance(e.target.value) }} value={props.otherAllowance} className=" w-2/5 text-center text-black rounded-sm outline-none" placeholder="Input" />
         </div>
         <Line />
 
@@ -114,8 +125,8 @@ function InputTable(props){
         </div>
 
       </div>
-      <div className="h-14 p-1 bg-blue-900 px-8">
-        <div role={"button"} onClick={() => { props.setSwitchOutput(true) }} className=" bg-red-500 rounded-full text-center h-full  justify-center flex flex-col flex-none hover:bg-cyan-400 font-bold text-xl">
+      <div className="h-14 p-1 bg-blue-900 px-8 flex flex-col flex-none justify-center items-center">
+        <div role={"button"} onClick={() => { props.setSwitchOutput(true) }} className=" bg-red-500 rounded-full text-center h-full w-1/2  justify-center flex flex-col flex-none hover:bg-cyan-400 font-bold text-xl">
           Submit
         </div>
       </div>
@@ -156,7 +167,7 @@ function OutPut1(props){
     setJuneTA(props.TA)
     setJuneOtherAllowance(props.otherAllowance)
     if (props.NPSAllowance) {
-      var npsAllow = Math.ceil((props.BasicIncome + 50) / 14 * 100)
+      var npsAllow = Math.ceil((juneBasicIncome*1 + juneDA*1)*  14 / 100)
         setJuneNPSAllowance(npsAllow)
     } else {
         setJuneNPSAllowance(0)
@@ -178,12 +189,13 @@ function OutPut1(props){
     setJulyTA(props.TA)
     setJulyOtherAllowance(props.otherAllowance)
     if (props.NPSAllowance) {
-      var npsAllow = Math.ceil((props.BasicIncome + 50) / 14 * 100)
+      var npsAllow = Math.ceil((julyBasicIncome*1 + julyDA*1) * 14 / 100)
+      console.log(npsAllow)
       setJulyNPSAllowance(npsAllow)
     } else {
       setJulyNPSAllowance(0)
     }
-  }, [props.switchToOutput])
+  }, [props.switchToOutput, julyBasicIncome])
   useEffect(() => {
     setJulyTotal(julyBasicIncome*1+julyHRA*1+julyDA*1+julyTA*1+julyOtherAllowance*1+julyNPSAllowance*1)
   }, [julyDA, julyHRA, julyTA, julyBasicIncome])
