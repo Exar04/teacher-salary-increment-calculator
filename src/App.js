@@ -17,7 +17,7 @@ function App() {
         !switchToOutput ?
           <div className=" w-full h-14 flex-none text-3xl font-bold flex justify-around items-center overflow-hidden">
             <div>
-            जुन २०२४ चे वेतन
+            वेतन
           </div>
           <img src="profileImg.png" className=" w-20 h-18 translate-y-5 translate-x-10"/>
 
@@ -28,10 +28,10 @@ function App() {
               <img src="profileImg.png" className=" w-20 h-18 -translate-y-4 translate-x-10"/>
             </div>
             <div className="h-full w-2/6 justify-center flex items-center">
-              जुन 
+              जुने 
             </div>
             <div className="h-full w-2/6 justify-center flex items-center">
-              जुलै
+              नवीन
             </div>
 
           </div>
