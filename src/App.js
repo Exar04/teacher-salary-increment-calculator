@@ -101,7 +101,7 @@ function InputTable(props){
 
         <div className=" w-full border-slate-200 flex p-2 ">
           <div className=" w-3/5 h-full p-2 ">महागाई भत्ता % DA</div>
-          <div className="bg-white w-2/5 rounded-sm text-black flex justify-center items-center font-bold">50%</div>
+          <div className="bg-white w-2/5 rounded-sm text-black flex justify-center items-center font-bold">53%</div>
           {/* <input onChange={(e) => { props.setDA(e.target.value) }} className=" w-2/5 text-center text-black rounded-sm outline-none" placeholder="Input" /> */}
         </div>
         <Line />
@@ -185,7 +185,7 @@ function OutPut1(props){
       alert("Value can only be 9, 18, 27")
     }
 
-    setJulyDA(julyBasicIncome * 50 /100)
+    setJulyDA(julyBasicIncome * 53 /100)
     setJulyTA(props.TA)
     setJulyOtherAllowance(props.otherAllowance)
     if (props.NPSAllowance) {
