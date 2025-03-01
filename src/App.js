@@ -199,7 +199,15 @@ function OutPut1(props){
   }, [props.switchToOutput, julyBasicIncome, julyDA])
   useEffect(() => {
     setJulyTotal(julyBasicIncome*1+julyHRA*1+julyDA*1+julyTA*1+julyOtherAllowance*1+julyNPSAllowance*1)
-  }, [julyDA, julyHRA, julyTA, julyBasicIncome])
+    console.log("h",julyBasicIncome*1)
+    console.log("h",julyHRA*1)
+    console.log("h",julyDA*1)
+    console.log("h",julyTA*1)
+    console.log("h",julyOtherAllowance*1)
+    console.log("july nps : ",julyNPSAllowance)
+
+    console.log("total july", julyBasicIncome*1+julyHRA*1+julyDA*1+julyTA*1+julyOtherAllowance*1+julyNPSAllowance*1)
+  }, [julyDA, julyHRA, julyTA, julyBasicIncome, julyNPSAllowance])
   useEffect(() => {
     setJuneTotal(juneBasicIncome*1+juneHRA*1+juneDA*1+juneTA*1+juneotherAllowance*1+juneNPSAllowance*1) 
   }, [juneDA, juneHRA, juneotherAllowance, juneBasicIncome, juneTA, juneNPSAllowance])
