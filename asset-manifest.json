@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/teacher-salary-increment-calculator/static/css/main.10982ac5.css",
-    "main.js": "/teacher-salary-increment-calculator/static/js/main.36017835.js",
+    "main.js": "/teacher-salary-increment-calculator/static/js/main.0fbba824.js",
     "index.html": "/teacher-salary-increment-calculator/index.html",
     "main.10982ac5.css.map": "/teacher-salary-increment-calculator/static/css/main.10982ac5.css.map",
-    "main.36017835.js.map": "/teacher-salary-increment-calculator/static/js/main.36017835.js.map"
+    "main.0fbba824.js.map": "/teacher-salary-increment-calculator/static/js/main.0fbba824.js.map"
   },
   "entrypoints": [
     "static/css/main.10982ac5.css",
-    "static/js/main.36017835.js"
+    "static/js/main.0fbba824.js"
   ]
 }
