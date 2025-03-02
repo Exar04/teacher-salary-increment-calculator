@@ -80,7 +80,7 @@ function App() {
 
 function InputTable(props){
   useEffect(() => {
-    props.setHRA(9)
+    props.setHRA(10)
     props.setTA(1350)
     props.setOtherAllowance(0)
   },[])
@@ -94,7 +94,7 @@ function InputTable(props){
         <Line />
 
         <div className=" w-full border-slate-200 flex  ">
-          <div className=" w-3/5 h-full p-2 ">घरभाडे % HRA <div className=" text-sm text-gray-300">येथे ९,१८,२७ यांपैकी आकडे टाका</div></div>
+          <div className=" w-3/5 h-full p-2 ">घरभाडे % HRA <div className=" text-sm text-gray-300">येथे 10, 20, 30 यांपैकी आकडे टाका</div></div>
           <input onChange={(e) => { props.setHRA(e.target.value) }} value={props.HRA} className=" w-2/5 text-center text-black rounded-sm  outline-none" placeholder="Input" />
         </div>
         <Line />
@@ -175,15 +175,15 @@ function OutPut1(props){
 
     // setJulyBasicIncome(Math.ceil(((props.BasicIncome * 3 / 100) + props.BasicIncome * 1 )/100)* 100)
     setJulyBasicIncome(props.BasicIncome)
-    if(props.HRA == 9){
-      setJulyHRA(julyBasicIncome * 9 / 100) 
-    } else if (props.HRA == 18){
-      setJulyHRA(julyBasicIncome * 18 / 100) 
-    }else if (props.HRA == 27){
-      setJulyHRA(julyBasicIncome * 27 / 100) 
+    if(props.HRA == 10){
+      setJulyHRA(julyBasicIncome * 10 / 100) 
+    } else if (props.HRA == 20){
+      setJulyHRA(julyBasicIncome * 20 / 100) 
+    }else if (props.HRA == 30){
+      setJulyHRA(julyBasicIncome * 30 / 100) 
     }else{
       setJulyHRA(0) 
-      alert("Value can only be 9, 18, 27")
+      alert("Value can only be 10, 20, 30")
     }
 
     setJulyDA(julyBasicIncome * 53 /100)
